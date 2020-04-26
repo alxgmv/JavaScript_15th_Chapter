@@ -33,8 +33,14 @@ class ToDoApp extends React.Component {
 
     this.setState({ todos });
   }
+
+  addToDo(value) {
+    console.log(value);
+  }
+
   render() {
     return (
+      <div>
       <ol>
         {
           this.state.todos.map((todo, i) => {
@@ -51,7 +57,17 @@ class ToDoApp extends React.Component {
           })
         }
       </ol>
-    )
+
+      <input
+      type="text"
+      placeholder="New Task"
+      onKeyDown={ev =>{
+        this.addToDo(ev.target.value);
+      }}
+      />
+      </div>
+
+    );
   }
 }
 
